@@ -34,11 +34,10 @@ window.addEventListener("load", function () {
 
       if (pilotName == "" || copilotName == "" || fuelLevel == "" || cargoMass == "") {
          alert("All fields are required!");
+      }
 
-         if (isNaN(fuelLevel) || isNaN(cargoMass)) {
-            alert("Fuel Level and Cargo Mass must be numbers.");
-         }
-
+      if (isNaN(fuelLevel) || isNaN(cargoMass)) {
+         alert("Fuel Level and Cargo Mass must be numbers.");
       }
 
       function showElement() {
@@ -47,26 +46,26 @@ window.addEventListener("load", function () {
          document.querySelector('#faultyItems').style.visibility = 'visible';
       }
 
-      if (fuelLevel < 10000 && cargoMass > 10000) {
+      if (fuelLevel < 10000 && cargoMass > 10000 && pilotName!==""&& copilotName!=="") {
          document.querySelector("#launchStatus").innerHTML = "Shuttle not ready for launch."
          document.querySelector("#launchStatus").style.color = "red";
          document.querySelector("#fuelStatus").innerHTML = "Not enough fuel for the journey."
          document.querySelector("#cargoStatus").innerHTML = "Cargo mass too heavy for liftoff."
          showElement();
 
-      } else if (cargoMass > 10000 && fuelLevel >= 10000) {
+      } else if (cargoMass > 10000 && fuelLevel >= 10000&& pilotName!==""&& copilotName!=="") {
          document.querySelector("#launchStatus").innerHTML = "Shuttle not ready for launch."
          document.querySelector("#launchStatus").style.color = "red";
          document.querySelector("#cargoStatus").innerHTML = "Cargo mass too heavy for liftoff."
          showElement();
 
-      } else if (cargoMass <= 10000 && fuelLevel < 10000) {
+      } else if (cargoMass <= 10000 && fuelLevel < 10000&& pilotName!==""&& copilotName!=="") {
          document.querySelector("#launchStatus").innerHTML = "Shuttle not ready for launch."
          document.querySelector("#launchStatus").style.color = "red";
          document.querySelector("#fuelStatus").innerHTML = "Not enough fuel for the journey."
          showElement();
 
-      } else {
+      } else if (pilotName!==""&& copilotName!=="" && cargoMass <= 10000 && fuelLevel >= 10000){
          document.querySelector("#launchStatus").innerHTML = "Shuttle is ready for launch."
          document.querySelector("#launchStatus").style.color = "green";
          document.querySelector("#fuelStatus").innerHTML = "Fuel level high enough for launch."
