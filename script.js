@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
    let button = document.querySelector("#submit");
 
    button.addEventListener("click", function (e) { // e = event
-      //e.preventDefault(); // don't refresh after the button is clicked
+      e.preventDefault(); // don't refresh after the button is clicked
 
       let pilotName = document.querySelector("#pilot").value;
       let copilotName = document.querySelector("#copilot").value;
@@ -73,8 +73,6 @@ window.addEventListener("load", function () {
          document.querySelector("#cargoStatus").innerHTML = "Cargo mass low enough for launch."
          showElement();
       }
-
-
 
    });
 });
